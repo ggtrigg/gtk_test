@@ -1,0 +1,2 @@
+#!/bin/sh
+podman run -e "XARGO_HOME=/xargo" -e "CARGO_HOME=/cargo" -e "CARGO_TARGET_DIR=/target" -e "CROSS_RUNNER=" -v "${HOME}/.cargo:/cargo:Z" -v "${HOME}/src/rust/gtk_test:/gtk_test:Z" -v "${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu:/rust:Z,ro" -v "${HOME}/src/rust/gtk_test/target:/target:Z" -w /gtk_test -it --rm --name gtk_test localhost/my/gtk-armv7-unknown-linux-gnueabihf cargo build --release --target armv7-unknown-linux-gnueabihf
